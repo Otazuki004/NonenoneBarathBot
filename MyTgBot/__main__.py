@@ -1,4 +1,4 @@
-from MyTgBot import app
+from MyTgBot import app, GROUP_ID
 
 
 if __name__ == "__main__":
