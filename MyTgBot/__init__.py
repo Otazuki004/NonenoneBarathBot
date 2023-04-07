@@ -18,7 +18,7 @@ bot_token = os.getenv("TOKEN")
 
 from pyrogram import Client
 
-app = Client("MyTgBot", api_id, api_hash, bot_token)
+app = Client("MyTgBot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 
 GROUP_ID = os.getenv("GROUP_ID")
