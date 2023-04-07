@@ -1,5 +1,5 @@
 from pyrogram import filters
-from MytgBot import app
+from MyTgBot import app
 
 
 
