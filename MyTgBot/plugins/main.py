@@ -9,11 +9,8 @@ async def start(_, message):
 
 
 # you can make this like more commands
-
-
-
 @app.on_message(filters.command("help"))
-async def start(_, message):
+async def help(_, message):
      await message.reply_text("Your help Text")
 
 
