@@ -1,0 +1,40 @@
+{
+      "name": "Pyrogram",
+      "description": "Personal use and learn Pyrogram bot.",
+      "keywords": [
+         "telegram",
+         "pyrogram"
+      ],
+      "repository": "https://github.com/Itz-Barath/PyrogramBot",
+      "env": {
+          "API_ID": {
+          "description": "Enter your api id",
+          "required": true
+          },
+          "API_HASH": {
+          "description": "Enter your api hash",
+          "required": true
+          },
+          "TOKEN": {
+          "description": "Enter your bot token",
+          "required": true
+          },
+          "GROUP_ID": {
+          "description": "Enter your log group id",
+          "required": true
+          }
+       },
+       "addons": [],
+       "buildpacks": [
+           {
+               "url": "heroku/python"
+           }
+       ],
+       "formation": {
+            "worker": {
+            "quantity": 1,
+            "size": "basic"
+            }
+       },
+       "stack": "container"
+       }
