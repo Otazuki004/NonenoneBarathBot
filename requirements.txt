@@ -1,2 +1,10 @@
 pyrogram
-tgcrypto 
+tgcrypto
+asyncio
+tgcrypto
+telegraph
+gpytranslate
+requests
+motor
+secureme
+wget 
