@@ -1,13 +1,13 @@
 from pyrogram import filters
 from pyrogram.types import *
 
-from MyTgBot import app
+from MyTgBot import bot
 from gpytranslate import Translator
 
 trans = Translator()
 
 
-@app.on_message(filters.command(["tl", "tr"]))
+@bot.on_message(filters.command(["tl", "tr"]))
 async def translate(_, message) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
