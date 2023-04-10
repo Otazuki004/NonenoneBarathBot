@@ -1,6 +1,8 @@
 from pyrogram import filters
 from pyrogram import enums
 from MyTgBot import bot
+from pyrogram.errors import (
+PeerIdInvalid,UsernameInvalid, UserNotParticipant)
 
 INFO_TEXT = """
 𝗨𝗦𝗘𝗥𝗦𝗧𝗔𝗧𝗨𝗦:
