@@ -81,6 +81,7 @@ async def promoting(_, message):
             chat_id,
             new_admin.id,
             privileges=pyrogram.types.ChatPrivileges(
+            can_change_info=True,
             can_delete_messages=True,
             can_pin_messages=True,
             can_invite_users=True,
