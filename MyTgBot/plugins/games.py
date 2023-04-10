@@ -6,23 +6,23 @@ import requests
 
 
 
-@app.on_message(filters.command("dice"))
+@bot.on_message(filters.command("dice"))
 async def roll_dice(bot, message):
     await bot.send_dice(message.chat.id, "🎲")
 
-@app.on_message(filters.command(["dart","arrow"]))                                     
+@bot.on_message(filters.command(["dart","arrow"]))                                     
 async def roll_arrow(bot, message):
     await bot.roll_arrow(message.chat.id, "🎯")
 
-@app.on_message(filters.command(["football","goal"]))
+@bot.on_message(filters.command(["football","goal"]))
 async def roll_goal(bot, message):
     await bot.roll_goal(message.chat.id, "⚽️")
 
-@app.on_message(filters.command("roll"))
+@bot.on_message(filters.command("roll"))
 async def roll_luck(bot, message):
     await bot.roll_luck(message.chat.id, "🎰")
 
-@app.on_message(filters.command(["throw","basket"]))
+@bot.on_message(filters.command(["throw","basket"]))
 async def roll_throw(bot, message):
     await bot.roll_throw(message.chat.id, "🏀")
 
@@ -30,7 +30,7 @@ async def roll_throw(bot, message):
 
 #Truth OR Dare Game
 
-@app.on_message(filters.command("dare"))
+@bot.on_message(filters.command("dare"))
 async def dare(_, m):
          reply = m.reply_to_message
          if reply:
@@ -51,7 +51,7 @@ Dare**: `{text}`
                """
                await m.reply_text(dare)
 
-@app.on_message(filters.command("truth"))
+@bot.on_message(filters.command("truth"))
 async def truth(_, m):
          reply = m.reply_to_message
          if reply:
