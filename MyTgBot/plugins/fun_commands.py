@@ -1,7 +1,7 @@
 import random
 from pyrogram import filters
 from pyrogram.types import *
-from MyTgBot import app
+from MyTgBot import bot
 
 QUOTES_IMG = (
       "https://i.imgur.com/Iub4RYj.jpg", 
@@ -115,13 +115,13 @@ reactions = [
     "(ﾉ≧∀≦)ﾉ ‥…━━━★", "╰( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ", "(∩ᄑ_ᄑ)⊃━☆ﾟ*･｡*･:≡( ε:)"
 ]
 
-@app.on_message(filters.command("react"))
+@bot.on_message(filters.command("react"))
 def reaction (_, message):
     if message.reply_to_message:
          return message.reply_to_message.reply_text(random.choice(reactions))  
     else:
          message.reply_text(random.choice(reactions))
 
-@app.on_message(filters.command(["aq","animequotes"]))
+@bot.on_message(filters.command(["aq","animequotes"]))
 def animequotes(_, message):
       message.reply_photo(random.choice(QUOTES_IMG))
