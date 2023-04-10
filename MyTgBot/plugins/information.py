@@ -137,7 +137,7 @@ async def ids(_, message):
               username = message.text.split()[1]
               id = ""
               try:
-                 they = await Nandha.get_chat(username)
+                 they = await bot.get_chat(username)
                  id += f"**They UID**: `{they.id}`\n"
                  id += f"**Chat ID**: `{message.chat.id}`\n"
                  id += f"**Your UID**: `{message.from_user.id}`\n"
