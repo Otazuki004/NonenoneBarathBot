@@ -43,7 +43,7 @@ async def unbanning(_, message):
            if user_check.is_member == "True":
                   return await message.reply("**That User is Already here Baka!**")
            elif admin_check.privileges.can_restrict_members:
-               msg = await message.reply("**Unbnning Proces.**")
+               msg = await message.reply("**Unbaning Process.**")
                await message.chat.unban_member(user_id=user.id)
                await msg.edit(f"""**Unbanned by Admin:**\n **{admin.mention}**
 **Unbanned User**:\n**{user.mention}**""")
