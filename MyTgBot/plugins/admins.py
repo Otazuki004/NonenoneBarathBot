@@ -30,11 +30,6 @@ async def demotes(_, message):
 **Demoted User:** **{user.mention}**""")
    except Exception as errors:
            await message.reply(f"**Error**: {errors}")
-
-@bot.on_message(filters.command("ban"))
-def ban(bot, message):
-   bot.ban_chat_member(chat_id, user_id)
-   bot.send_message(chat.id, f"{message.reply_to_message.from_user.mention} Banned!")
        
 @bot.on_message(filters.command("unban"))
 async def unbanning(_, message):
