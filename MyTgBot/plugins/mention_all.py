@@ -11,7 +11,7 @@ chatQueue = []
 
 stopProcess = False
 
-@bot.on_message(filters.command(["tagall","mentionall","all"]))
+@bot.on_message(filters.command(["tagall","mentionall","@all"]))
 async def everyone(_, message):
   global stopProcess
   try: 
