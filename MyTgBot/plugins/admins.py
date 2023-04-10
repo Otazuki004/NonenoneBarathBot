@@ -33,8 +33,8 @@ async def demotes(_, message):
 
 @bot.on_message(filters.command("ban"))
 def ban(bot, message):
- await bot.ban_chat_member(chat.id, user.id)
-await bot.send_message(chat.id, f"{message.reply_to_message.from_user.mention} Banned!")
+   bot.ban_chat_member(chat.id, user.id)
+   bot.send_message(chat.id, f"{message.reply_to_message.from_user.mention} Banned!")
        
 @bot.on_message(filters.command("unban"))
 async def unbanning(_, message):
