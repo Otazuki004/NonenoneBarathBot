@@ -12,19 +12,19 @@ async def roll_dice(bot, message):
 
 @bot.on_message(filters.command(["dart","arrow"]))                                     
 async def roll_arrow(bot, message):
-    await bot.roll_arrow(message.chat.id, "🎯")
+    await bot.sent_dice(message.chat.id, "🎯")
 
 @bot.on_message(filters.command(["football","goal"]))
 async def roll_goal(bot, message):
-    await bot.roll_goal(message.chat.id, "⚽️")
+    await bot.sent_dice(message.chat.id, "⚽️")
 
 @bot.on_message(filters.command("roll"))
 async def roll_luck(bot, message):
-    await bot.roll_luck(message.chat.id, "🎰")
+    await bot.sent_dice(message.chat.id, "🎰")
 
 @bot.on_message(filters.command(["throw","basket"]))
 async def roll_throw(bot, message):
-    await bot.roll_throw(message.chat.id, "🏀")
+    await bot.sent_dice(message.chat.id, "🏀")
 
 
 
