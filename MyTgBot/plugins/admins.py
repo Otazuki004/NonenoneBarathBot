@@ -3,21 +3,6 @@ from MyTgBot import bot
 from pyrogram.types import *
 import os, io, time
 
-@bot.on_message(filters.command("admins"))
-async def admins(_, message):
-       chat_id = message.chat.id
-       chat_title = message.chat.title
-       admin_list = []
-       yeah = []
-       msg = await message.reply_text("**Searching Admins!**")
-       async for administrators in bot.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
-                     admin_list.append(administrators.user.mention)
-                     ok = "Admins:\n"
-                     for admin in admin_list:
-                             ok += f"[{admin}]({admin})"
-                             await message.reply(ok)
-                            
-
 @bot.on_message(filters.command("demote"))
 async def demotes(_, message):
    try:
@@ -153,40 +138,6 @@ async def delete(_, m):
      elif user_stats.privileges.can_delete_messages:
                await reply.delete()
                await m.delete()
-
-@bot.on_message(filters.command("ban"))
-async def banned(_, message):
-         global reply_user
-         if not message.reply_to_message:
-                   return await message.reply("Reply to Someone to BAN")
-         reply_user = message.reply_to_message.from_user
-         from_user = message.from_user
-         bot_stats = await bot.get_chat_member(message.chat.id, "self")
-         from_user_stats = await bot.get_chat_member(message.chat.id, from_user.id)
-         reply_user_stats = await bot.get_chat_member(message.chat.id, reply_user.id)
-         if len(message.command) <2:
-                  ko = await message.reply_text("**Provide A Reason For Banning.**")
-                  time.sleep(5)
-                  await ko.delete()
-         
-         elif not bot_stats.privileges:
-                  return await message.reply("Make Me Admin with (`can_restrict_members`) power!")
-         elif not from_user_stats.privileges:
-                 return await message.reply("Only Admins Can Use This Commands")
-         elif not bot_stats.privileges.can_restrict_members:
-                 return await message.reply("Give Me (`can_restrict_members`) Permission")
-         elif not from_user_stats.privileges.can_restrict_members:
-                  return await message.reply("Your missing the rights (`can_restrict_members`)")
-         elif reply_user_stats.privileges:
-                   return await message.reply("Sorry son I can't ban administrators")
-         elif not reply_user_stats.privileges:
-                     reason = message.text.split(None, 1)[1]
-                     await bot.ban_chat_member(message.chat.id, reply_user.id)
-                     await message.reply_text(f"**Banned: {reply_user.mention}**\n**Reason: {reason}**",
-                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Unban", callback_data="unban"),
-                                                        InlineKeyboardButton(text="Delete", callback_data="close")]]))
-       
-         
                
                      
 @bot.on_callback_query(filters.regex("unban"))
