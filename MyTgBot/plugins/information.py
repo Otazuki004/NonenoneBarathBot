@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram import enums
-from MyTgBot import app
+from MyTgBot import bot
 
 INFO_TEXT = """
 𝗨𝗦𝗘𝗥𝗦𝗧𝗔𝗧𝗨𝗦:
@@ -34,7 +34,7 @@ async def userstatus(user_id):
 
 
 
-@app.on_message(filters.command(["info","userinfo"]))
+@bot.on_message(filters.command(["info","userinfo"]))
 async def userinfo(_, message):
     
      chat_id = message.chat.id
