@@ -1,5 +1,5 @@
 from pyrogram import filters
-from MyTgBot import app
+from MyTgBot import bot
 from pyrogram.types import Message
 import os
 import asyncio 
@@ -11,7 +11,7 @@ chatQueue = []
 
 stopProcess = False
 
-@app.on_message(filters.command(["tagall","mentionall","all"]))
+@bot.on_message(filters.command(["tagall","mentionall","all"]))
 async def everyone(_, message):
   global stopProcess
   try: 
@@ -77,7 +77,7 @@ async def everyone(_, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)                    
         
-@app.on_message(filters.command(["stop","cancel"]))
+@bot.on_message(filters.command(["stop","cancel"]))
 async def stop(_, message):
   global stopProcess
   try:
