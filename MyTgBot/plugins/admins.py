@@ -145,7 +145,7 @@ async def unbaning(_, query):
          stats = await bot.get_chat_member(query.message.chat.id, query.from_user.id)
          if stats.privileges.can_restrict_members:
                   await bot.unban_chat_member(query.message.chat.id, reply_user.id)
-                  await query.message.edit(f"""**Admire: {query.from_user.mention}**
+                  await query.message.edit(f"""**Admin: {query.from_user.mention}**
 **Unban: {reply_user.mention}**""")    
          else:
                await query.answer("You Not Admin!", show_alert=True )
