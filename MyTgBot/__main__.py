@@ -1,9 +1,10 @@
-from MyTgBot import bot, GROUP_ID
+from MyTgBot import bot
+import config
 
 
 if __name__ == "__main__":
     bot.run()
     with bot:
        bot.send_message(
-            chat_id=GROUP_ID, 
+            config.GROUP_ID, 
             text="Bot started!")
