@@ -31,29 +31,7 @@ async def demotes(_, message):
    except Exception as errors:
            await message.reply(f"**Error**: {errors}")
        
-@bot.on_message(filters.command("unban"))
-async def unbanning(_, message):
-        try:
-           if not message.reply_to_message:
-                 return await message.reply("**Reply to Someone.**")
-           chat_id = message.chat.id
-           admin = message.from_user
-           user_check = message.reply_to_message.from_user
-           admin_check = await bot.get_chat_member(chat_id, admin.id)
-           if user_check.is_member == "True":
-                  return await message.reply("**That User is Already here Baka!**")
-           elif admin_check.privileges.can_restrict_members:
-               msg = await message.reply("**Unbaning Process.**")
-               await message.chat.unban_member(user_id=user.id)
-               await msg.edit(f"""**Unbanned by Admin:**\n **{admin.mention}**
-**Unbanned User**:\n**{user.mention}**""")
-        except Exception as errors:
-           await message.reply(f"**Error**: {errors}")
-           
-              
-       
 
-   
       
       
 @bot.on_message(filters.command("promote"))
