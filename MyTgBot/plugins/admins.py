@@ -119,16 +119,6 @@ async def delete(_, m):
                await m.delete()
                
                      
-@bot.on_callback_query(filters.regex("unban"))
-async def unbaning(_, query):
-         stats = await bot.get_chat_member(query.message.chat.id, query.from_user.id)
-         if stats.privileges.can_restrict_members:
-                  await bot.unban_chat_member(query.message.chat.id, reply_user.id)
-                  await query.message.edit(f"""**Admin: {query.from_user.mention}**
-**Unban: {reply_user.mention}**""")    
-         else:
-               await query.answer("You Not Admin!", show_alert=True )
-                    
 @bot.on_message(filters.command(["setgtitle","setchattitle"]))
 async def setgrouptitle(_, m):
      reply = m.reply_to_message
