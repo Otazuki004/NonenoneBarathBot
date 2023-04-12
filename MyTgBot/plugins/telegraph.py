@@ -7,7 +7,7 @@ from telegraph import upload_file
 
 # telegraph page account 
 telegraph = Telegraph()
-telegraph.create_account(short_name="@Miss_Angel_Bot")
+telegraph.create_account(short_name="@CuteSerenaBot")
 
 @bot.on_message(filters.command("txt"))
 async def txt(_, message):
