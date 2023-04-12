@@ -13,7 +13,7 @@ I Already Awake!  ( • ̀ω•́  )!
 
 @bot.on_message(filters.command("start"))
 async def start(_, message):
-     await message.reply_text(START_TEXT),
+     await message.reply(START_TEXT),
      reply_markup=buttons)
 
     buttons = [
@@ -26,7 +26,7 @@ async def start(_, message):
 
 @bot.on_message(filters.command("help"))
 async def help(_, message):
-     await message.reply_text(HELP_TEXT),
+     await message.reply(HELP_TEXT),
      reply_markup=(HELP_BUTTON))
      
 
