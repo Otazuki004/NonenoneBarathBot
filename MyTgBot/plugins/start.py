@@ -14,8 +14,7 @@ I Already Awake!  ( • ̀ω•́  )!
 @bot.on_message(filters.command("start"))
 async def start(_, message):
      await message.reply_text(START_TEXT),
-     reply_markup=InlineKeyboardMarkup(buttons),
-     )
+     reply_markup=InlineKeyboardMarkup(buttons),)
 
     buttons = [
         [
@@ -28,7 +27,7 @@ async def start(_, message):
 @bot.on_message(filters.command("help"))
 async def help(_, message):
      await message.reply_text(HELP_TEXT),
-     reply_markup=InlineKeyboardMarkup(HELP_BUTTON),
+     reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
      
 
 HELP_TEXT = """
