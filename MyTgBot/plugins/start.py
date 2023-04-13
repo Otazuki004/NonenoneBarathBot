@@ -11,10 +11,6 @@ I Already Awake!  ( • ̀ω•́  )!
 • Read the help menu for about my futures /help.
 """
 
-@bot.on_message(filters.command("start"))
-async def start(_, message):
-     await message.reply(START_TEXT),
-     reply_markup=buttons)
 
     buttons = [
         [
@@ -23,6 +19,12 @@ async def start(_, message):
             InlineKeyboardButton(
                 "HELP", callback_data='help_back'),]]
 
+
+
+@bot.on_message(filters.command("start"))
+async def start(_, message):
+     await message.reply(START_TEXT),
+     reply_markup=InlineKeyboardMarkup(buttons),)
 
 @bot.on_message(filters.command("help"))
 async def help(_, message):
