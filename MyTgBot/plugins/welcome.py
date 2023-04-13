@@ -10,4 +10,4 @@ async def welcome(_, m: Message):
         
 @bot.on_message(filters.left_chat_member)
 async def member_has_left(_, m: Message):
-        await m.reply("Sad to see you leaving **{}**.\nTake Care!".format(m.from_user.mention))
+        await m.reply("Sad to see you leaving **{}**\nTake Care!".format(m.from_user.mention))
