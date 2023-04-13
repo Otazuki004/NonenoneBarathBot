@@ -78,7 +78,7 @@ async def eval(client, message):
 async def sh(client, message):
     if message.from_user.id !=1666544436:
          return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
-         code = m.text.replace(m.text.split(" ")[0], "")
+         code = message.text.replace(message.text.split(" ")[0], "")
          x = run(code)
-         m.reply(
+         message.reply(
             f"**SHELL**: `{code}`\n\n**OUTPUT**:\n`{x}`")
