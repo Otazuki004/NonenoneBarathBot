@@ -39,6 +39,7 @@ HELP_BUTTON = [[
         InlineKeyboardButton('Admin', callback_data='admin_help'),
         InlineKeyboardButton('UserInfo', callback_data='userinfo_help'),
         InlineKeyboardButton('Fun', callback_data='fun_help'),
+        ],[
         InlineKeyboardButton('Misc', callback_data='misc_help'),
         InlineKeyboardButton('Tagging', callback_data='tagging_help')]]
 
@@ -52,6 +53,8 @@ async def close(_, query: CallbackQuery):
            query = query.message
            await query.delete()
 
+BUTTON = [[InlineKeyboardButton("Back 🔙", callback_data="help_back"),
+            InlineKeyboardButton("Close 🗑", callback_data='close'),]]
 
 ADMIN_TEXT = """
 Usage of admin commands:
@@ -67,7 +70,7 @@ Usage of admin commands:
 @bot.on_callback_query(filters.regex("admin_help"))
 async def adminhelp(_, query: CallbackQuery):
      await query.message.edit_caption(ADMIN_TEXT,
-                                      reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
 
 USERINFO_TEXT = """
 User info:
@@ -78,7 +81,7 @@ User info:
 @bot.on_callback_query(filters.regex("userinfo_help"))
 async def userinfohelp(_, query: CallbackQuery):
      await query.message.edit_caption(USERINFO_TEXT,
-                                      reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
 MICS_TEXT = """
 Extra commands:
 • /tm - reply media to get telegraph link.
@@ -90,7 +93,7 @@ Extra commands:
 @bot.on_callback_query(filters.regex("mics_help"))
 async def micshelp(_, query: CallbackQuery):
      await query.message.edit_caption(MICS_TEXT,
-                                      reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
 TAGGING_TEXT = """
 Tagging a group members:
 • /tagall - tag a group members.
@@ -100,7 +103,7 @@ Tagging a group members:
 @bot.on_callback_query(filters.regex("tagging_help"))
 async def tagginghelp(_, query: CallbackQuery):
      await query.message.edit_caption(TAGGING_TEXT,
-                                      reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
 FUN_TEXT = """
 Usage of fun commands:
 • /react - react a message.
@@ -113,6 +116,6 @@ Usage of fun commands:
 @bot.on_callback_query(filters.regex("fun_help"))
 async def funhelp(_, query: CallbackQuery):
      await query.message.edit_caption(FUN_TEXT,
-                                      reply_markup=InlineKeyboardMarkup(HELP_BUTTON),) 
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),) 
 
 
