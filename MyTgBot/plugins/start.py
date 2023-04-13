@@ -14,9 +14,9 @@ I Already Awake!  ( • ̀ω•́  )!
 buttons = [
         [
             InlineKeyboardButton(
-                "ADD ME", url="t.me/cuteserenabot?startgroup=true"),
+                "Add Me", url="t.me/cuteserenabot?startgroup=true"),
             InlineKeyboardButton(
-                "HELP", callback_data='help_back'),]]
+                "Help", callback_data='help_back'),]]
 
 
 
