@@ -41,7 +41,15 @@ HELP_BUTTON = [[
         InlineKeyboardButton('Fun', callback_data='fun_help'),
         ],[
         InlineKeyboardButton('Misc', callback_data='misc_help'),
-        InlineKeyboardButton('Tagging', callback_data='tagging_help')]]
+        InlineKeyboardButton('Tagging', callback_data='tagging_help'),
+        InlineKeyboardButton('Mornings', callback_data='mornings_help'),
+        ],[
+        InlineKeyboardButton('🏡 Home', callback_data='close')]]
+
+@bot.on_callback_query(filters.regex("home"))
+async def help(_, query: CallbackQuery):
+    await query.message.edit_caption(START_TEXT,
+                                    reply_markup=InlineKeyboardMarkup(buttons),)
 
 @bot.on_callback_query(filters.regex("help_back"))
 async def help(_, query: CallbackQuery):
@@ -116,6 +124,17 @@ Usage of fun commands:
 @bot.on_callback_query(filters.regex("fun_help"))
 async def funhelp(_, query: CallbackQuery):
      await query.message.edit_caption(FUN_TEXT,
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
+MORNINGS_TEXT = """
+This is a regex filter so you don't need to use prefixes. just tape:
+
+`[``morning``]` `[``night``]` 
+`[``evening``]` `[``afternoon``]`
+"""
+
+@bot.on_callback_query(filters.regex("mornings_help"))
+async def animehelp(_, query: CallbackQuery):
+     await query.message.edit_caption(MORNINGS_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),) 
 
 
