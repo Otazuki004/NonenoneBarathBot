@@ -11,8 +11,7 @@ I Already Awake!  ( • ̀ω•́  )!
 • Read the help menu for about my futures /help.
 """
 
-
-    buttons = [
+buttons = [
         [
             InlineKeyboardButton(
                 "ADD ME", url="t.me/cuteserenabot?startgroup=true"),
