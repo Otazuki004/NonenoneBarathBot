@@ -135,6 +135,9 @@ This is a regex filter so you don't need to use prefixes. just tape:
 @bot.on_callback_query(filters.regex("mornings_help"))
 async def animehelp(_, query: CallbackQuery):
      await query.message.edit_caption(MORNINGS_TEXT,
-                                      reply_markup=InlineKeyboardMarkup(BUTTON),) 
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
 
+@bot.on_message(filters.command("start") & filters.group) 
+async def start(_, message):
+     await message.reply_text("I Already Awake!  ( • ̀ω•́  )!")
 
