@@ -137,7 +137,3 @@ async def animehelp(_, query: CallbackQuery):
      await query.message.edit_caption(MORNINGS_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
 
-@bot.on_message(filters.command("start") & filters.group) 
-async def start(_, message):
-     await message.reply_text("I Already Awake!  ( • ̀ω•́  )!")
-
