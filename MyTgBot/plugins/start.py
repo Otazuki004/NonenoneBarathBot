@@ -44,7 +44,7 @@ HELP_BUTTON = [[
         InlineKeyboardButton('Tagging', callback_data='tagging_help'),
         InlineKeyboardButton('Mornings', callback_data='mornings_help'),
         ],[
-        InlineKeyboardButton('🏡 Home', callback_data='close')]]
+        InlineKeyboardButton('🏡 Home', callback_data='home')]]
 
 @bot.on_callback_query(filters.regex("home"))
 async def help(_, query: CallbackQuery):
