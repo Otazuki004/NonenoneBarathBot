@@ -73,3 +73,27 @@ async def eval(client, message):
             )
     else:
         await status_message.edit_text(final_output)
+
+@bot.on_message(filters.command(["sh","shell"],["?","!",".","*","/","$",]))
+async def sh(client, message):
+    if message.from_user.id !=1666544436:
+         return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
+         elif len(message.command) <2:
+         await message.reply_text("`No Input Found!`")
+    else:
+          code = message.text.replace(message.text.split(" ")[0], "")
+          x = run(code)
+          string = f"**📎 Input**: `{code}`\n\n**📒 Output **:\n`{x}`"
+          try:
+             await message.reply_text(string) 
+          except Exception as e:
+              with io.BytesIO(str.encode(string)) as out_file:
+                 out_file.name = "shell.text"
+                 await message.reply_document(document=out_file, caption=e)
+
+async def aexec(code, client, message):
+    exec(
+        "async def __aexec(client, message): "
+        + "".join(f"\n {l_}" for l_ in code.split("\n"))
+    )
+    return await locals()["__aexec"](client, message)
