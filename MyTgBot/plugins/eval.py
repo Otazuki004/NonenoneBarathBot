@@ -74,11 +74,11 @@ async def eval(client, message):
     else:
         await status_message.edit_text(final_output)
 
+
 @bot.on_message(filters.command(["sh","shell"],["?","!",".","*","/","$",]))
 async def sh(client, message):
     if message.from_user.id !=1666544436:
          return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
-         elif len(message.command) <2:
          await message.reply_text("`No Input Found!`")
     else:
           code = message.text.replace(message.text.split(" ")[0], "")
