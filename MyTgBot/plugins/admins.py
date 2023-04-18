@@ -14,7 +14,7 @@ async def ban(_, message):
             status = get. status 
             chat_id = message.chat.id
             reply = message.reply_to_message
-            cmd_user = elif user_stats.privileges.can_restrict_members 
+            cmd_user = elif user_stats.privileges.can_restrict_members: 
             if status in cmd_user:
                 chat_id = message.chat.id
                 user_id  = message.reply_to_message.from_user.id
@@ -37,7 +37,7 @@ async def unban(_, message):
             status = get. status 
             chat_id = message.chat.id
             reply = message.reply_to_message
-            cmd_user = elif user_stats.privileges.can_restrict_members 
+            cmd_user = elif user_stats.privileges.can_restrict_members: 
             if status in cmd_user:
                 chat_id = message.chat.id
                 user_id  = message.reply_to_message.from_user.id
