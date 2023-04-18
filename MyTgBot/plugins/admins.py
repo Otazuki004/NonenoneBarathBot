@@ -10,17 +10,16 @@ async def ban(_, message):
         await message.reply_text("Work only on groups!")
     else:
         try:
-            get = await bot.get_chat_member(message.chat.id,message.from_user.id) 
-            status = get. status 
+            get = await bot.get_chat_member(message.chat.id, message.from_user.id) 
             chat_id = message.chat.id
             reply = message.reply_to_message
-            if user_stats.privileges.can_restrict_members:
+            if get.privileges.can_restrict_members:
                 chat_id = message.chat.id
                 user_id  = message.reply_to_message.from_user.id
                 await bot.ban_chat_member(chat_id, user_id)
                 await message.reply_text(text= "**Ban Successfully**")
             else:
-                await message.reply_text(text = "**You are not a admin**")
+                await message.reply_text(text = "**You are not a admin** (or you don't have `can_restrict_members`)")
         except Exception as e:
             await message.reply_text(e)
 
