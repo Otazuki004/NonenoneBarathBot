@@ -19,7 +19,7 @@ async def ban(_, message):
                 await bot.ban_chat_member(chat_id, user_id)
                 await message.reply_text(text= "**Ban Successfully**")
             else:
-                await message.reply_text(text = "**You are not a admin** (or you don't have `can_restrict_members`)")
+                await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
         except Exception as e:
             await message.reply_text(e)
 
@@ -39,7 +39,7 @@ async def unban(_, message):
                 await bot.unban_chat_member(chat_id, user_id)
                 await message.reply_text(text= "**Unban Successfully**")
             else:
-                await message.reply_text(text = "**You are not a admin**")
+                await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
         except Exception as e:
             await message.reply_text(e)
 
