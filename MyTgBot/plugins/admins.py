@@ -1,16 +1,16 @@
-from pyrogram import filters, enums, Client
+from pyrogram import filters, enums
 from MyTgBot import bot
 from pyrogram.types import *
 import os, io, time
 
 
 @bot.on_message(filters.command("ban"))
-async def ban (_, message):
+async def ban(_, message):
     if message.chat.type == "private":
         await message.reply_text("Work only on groups!")
     else:
         try:
-            get = await client.get_chat_member(message.chat.id,message.from_user.id) 
+            get = await bot.get_chat_member(message.chat.id,message.from_user.id) 
             status = get. status 
             chat_id = message.chat.id
             message_id = message.reply_to_message.message_id
@@ -27,13 +27,13 @@ async def ban (_, message):
 
 
 @bot.on_message(filters.command("unban"))
-async def unban (_, message):
+async def unban(_, message):
     if message.chat.type == "private":
         await message.reply_text("Work only on groups!")
     else:
         
         try:
-            get = await client.get_chat_member(message.chat.id,message.from_user.id) 
+            get = await bot.get_chat_member(message.chat.id,message.from_user.id) 
             status = get. status 
             chat_id = message.chat.id
             message_id = message.reply_to_message.message_id
