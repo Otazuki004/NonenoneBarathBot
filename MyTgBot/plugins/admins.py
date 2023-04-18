@@ -29,13 +29,11 @@ async def unban(_, message):
     if message.chat.type == "private":
         await message.reply_text("Work only on groups!")
     else:
-        
         try:
-            get = await bot.get_chat_member(message.chat.id,message.from_user.id) 
-            status = get. status 
+            get = await bot.get_chat_member(message.chat.id,message.from_user.id)  
             chat_id = message.chat.id
             reply = message.reply_to_message
-            if user_stats.privileges.can_restrict_members:
+            if get.privileges.can_restrict_members:
                 chat_id = message.chat.id
                 user_id  = message.reply_to_message.from_user.id
                 await bot.unban_chat_member(chat_id, user_id)
