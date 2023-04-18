@@ -20,6 +20,7 @@ async def ban(_, message):
                 await message.reply_text(text= "**Ban Successfully**")
             else:
                 await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
+
    except Exception as e:
            await message.reply_text(e)
 
@@ -40,6 +41,7 @@ async def unban(_, message):
                 await message.reply_text(text= "**Unban Successfully**")
             else:
                 await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
+
    except Exception as e:
            await message.reply_text(e)
 
