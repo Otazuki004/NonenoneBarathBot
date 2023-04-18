@@ -1,7 +1,52 @@
-from pyrogram import filters, enums
+from pyrogram import filters, enums, Client
 from MyTgBot import bot
 from pyrogram.types import *
 import os, io, time
+
+
+@bot.on_message(filters.command("ban"))
+async def ban (_, message):
+    if message.chat.type == "private":
+        await message.reply_text("Work only on groups!")
+    else:
+        try:
+            get = await client.get_chat_member(message.chat.id,message.from_user.id) 
+            status = get. status 
+            chat_id = message.chat.id
+            message_id = message.reply_to_message.message_id
+            cmd_user = ["administrator","creator"] 
+            if status in cmd_user:
+                chat_id = message.chat.id
+                user_id  = message.reply_to_message.from_user.id
+                await bot.ban_chat_member(chat_id, user_id)
+                await message.reply_text(text= "**Ban Successfully**")
+            else:
+                await message.reply_text(text = "**You are not a admin**")
+        except Exception as e:
+            await message.reply_text(e)
+
+
+@bot.on_message(filters.command("unban"))
+async def unban (_, message):
+    if message.chat.type == "private":
+        await message.reply_text("Work only on groups!")
+    else:
+        
+        try:
+            get = await client.get_chat_member(message.chat.id,message.from_user.id) 
+            status = get. status 
+            chat_id = message.chat.id
+            message_id = message.reply_to_message.message_id
+            cmd_user = ["administrator","creator"] 
+            if status in cmd_user:
+                chat_id = message.chat.id
+                user_id  = message.reply_to_message.from_user.id
+                await bot.unban_chat_member(chat_id, user_id)
+                await message.reply_text(text= "**Unban Successfully**")
+            else:
+                await message.reply_text(text = "**You are not a admin**")
+        except Exception as e:
+            await message.reply_text(e)
 
 
 @bot.on_message(filters.command("demote"))
