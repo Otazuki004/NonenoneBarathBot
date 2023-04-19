@@ -35,7 +35,7 @@ async def unban(_, message):
     else:
         try:
             if not message.reply_to_message:
-                  return await message.reply("**Reply someone to ban.**")
+                  return await message.reply("**Reply someone to unban.**")
             get = await bot.get_chat_member(message.chat.id,message.from_user.id)  
             chat_id = message.chat.id
             reply = message.reply_to_message
