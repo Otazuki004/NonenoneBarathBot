@@ -1,9 +1,3 @@
-GROUP_LINK = "t.me/cring_tamilchatting"
-USERNAME = "CuteSerenaBot"
-GROUP_ID = -1001785150977
-OWNER_ID = 1666544436
-
-
 APP_ID = 8497546
 APP_HASH = "add27f9775d4530a5ee0b6defc8bf5dobbf"
 TOKEN = "5684325780:AAGML1fdIYcbTvlZ1AVU0qDFwDSk-1rhdigfjrrd"
