@@ -1,4 +1,3 @@
-
 import logging
 
 # enable logging
@@ -20,7 +19,7 @@ group_id = os.getenv("GROUP_ID")
 from pyrogram import Client
 
 bot = Client("MyTgBot", 
-       api_id=API_ID, 
-       api_hash=API_HASH,
-       bot_token=TOKEN,
+       api_id=api_id, 
+       api_hash=api_hash,
+       bot_token=token,
        plugins=dict(root="MyTgBot"), )
