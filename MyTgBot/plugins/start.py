@@ -68,9 +68,11 @@ ADMIN_TEXT = """
 Usage of admin commands:
 • /promote - promote a user.
 • /demote - demote a user.
-• /pin - pin a message
-• /unpin - unpin a message
-• /del - delete a message
+• /ban - ban a user.
+• /unban - unban a user.
+• /pin - pin a message.
+• /unpin - unpin a message.
+• /del - delete a message.
 • /setgpic - set group pic.
 • /setgtitle - set group title.
 """
@@ -116,7 +118,7 @@ FUN_TEXT = """
 Usage of fun commands:
 • /react - react a message.
 • /aq - random sent animequotes.
-• /dice - sent a dice
+• /dice - sent a dice.
 • /truth - sent a truth message.
 • /dare - sent a dare message.
 """
