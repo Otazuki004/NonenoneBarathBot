@@ -18,5 +18,5 @@ async def handwriting(_, message):
     await m.edit("» Uploading...")
     await m.delete()
     me = await bot.get_me()
-    await message.reply_photo(caption=f"""**🥀 Request by {message.from_user.mention}**\n
+    await message.reply_text(caption=f"""**🥀 Request by {message.from_user.mention}**\n
 **~ Made by {me.mention}**""")
