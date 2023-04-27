@@ -18,6 +18,5 @@ async def handwriting(_, message):
     await m.edit("» Uploading...")
     await m.delete()
     me = await bot.get_me()
-    await message.reply_photo(url, caption=f"""**🥀 Request by {message.from_user.mention}**\n
-**~ Made by {me.mention}**""",
-    reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton(text="Link", url=url)]]))
+    await message.reply_photo(caption=f"""**🥀 Request by {message.from_user.mention}**\n
+**~ Made by {me.mention}**""")
