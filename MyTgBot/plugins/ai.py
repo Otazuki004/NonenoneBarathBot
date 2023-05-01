@@ -8,10 +8,10 @@ BOT_ID = (6005606875)
 @bot.on_message(filters.command("chatbot"))
 async def chatbot(_, message):
     reply = message.reply_to_message
-             await message.reply_text("Successfully ChatBot Active!")
+             await message.reply("Successfully ChatBot Active!")
              return
     else:
-        await message.reply_text("This Chat Already Enabled ChatBot!")
+             await message.reply("This Chat Already Enabled ChatBot!")
         
 @bot.on_message(filters.text, group=200)
 async def addchat(_, message):
