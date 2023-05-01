@@ -5,11 +5,6 @@ from pyrogram import filters
 
 BOT_ID = (6005606875)
 
-@bot.on_message(filters.command("chatbot"))
-async def chatbot(_, message):
-         if message.reply_to_message:
-            await message.reply("Successfully ChatBot Active!")
-     
 @bot.on_message(filters.text, group=200)
 async def addchatbot(_, message):
           if not message.reply_to_message:
