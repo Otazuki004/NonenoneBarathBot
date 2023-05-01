@@ -10,7 +10,7 @@ async def chatbot(_, message):
     reply = message.reply_to_message
              await message.reply("Successfully ChatBot Active!")
              return
-    else:
+         else:
              await message.reply("This Chat Already Enabled ChatBot!")
         
 @bot.on_message(filters.text, group=200)
