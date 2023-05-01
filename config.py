@@ -1,3 +1,0 @@
-APP_ID = 8497546
-APP_HASH = "add27f9775d4530a5ee0b6defc8bf5dobbf"
-TOKEN = "5684325780:AAGML1fdIYcbTvlZ1AVU0qDFwDSk-1rhdigfjrrd"
