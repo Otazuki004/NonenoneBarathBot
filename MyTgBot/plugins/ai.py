@@ -11,9 +11,9 @@ async def chatbot(_, message):
              await message.reply("Successfully ChatBot Active!")
          if not message.reply_to_message:
                 return
-          elif not message.reply_to_message.from_user.id == BOT_ID:
+         elif not message.reply_to_message.from_user.id == BOT_ID:
                 return
-          elif message.reply_to_message.from_user.id == BOT_ID:
+         elif message.reply_to_message.from_user.id == BOT_ID:
                Message = message.text
                API = requests.get("https://kora-api.vercel.app/chatbot/2d94e37d-937f-4d28-9196-bd5552cac68b/Serena/Anonymous/message="+Message).json()
                await message.reply(API["reply"])
