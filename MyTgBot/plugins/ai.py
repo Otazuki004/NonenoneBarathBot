@@ -7,8 +7,6 @@ BOT_ID = (6005606875)
 
 @bot.on_message(filters.text, group=200)
 async def chatbot(_, message):
-          if not message.reply_to_message:
-                return
           elif not message.reply_to_message.from_user.id == BOT_ID:
                 return
           elif message.reply_to_message.from_user.id == BOT_ID:
