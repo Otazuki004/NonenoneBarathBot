@@ -9,7 +9,7 @@ BOT_ID = (6005606875)
 async def chatbot(_, message):
          if message.reply_to_message:
              await message.reply("Successfully ChatBot Active!")
-         else:
+         return
              await message.reply("This Chat Already Enabled ChatBot!")
         
 @bot.on_message(filters.text, group=200)
