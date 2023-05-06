@@ -61,8 +61,8 @@ async def close(_, query: CallbackQuery):
            query = query.message
            await query.delete()
 
-BUTTON = [[InlineKeyboardButton("Back 🔙", callback_data="help_back"),
-            InlineKeyboardButton("Close 🗑", callback_data='close'),]]
+BUTTON = [[InlineKeyboardButton("🔙 Back", callback_data="help_back"),
+            InlineKeyboardButton("🗑 Close", callback_data='close'),]]
 
 ADMIN_TEXT = """
 Usage of admin commands:
