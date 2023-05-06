@@ -14,9 +14,9 @@ I Already Awake!  ( • ̀ω•́  )!
 buttons = [
         [
             InlineKeyboardButton(
-                "Add Me", url="t.me/cuteserenabot?startgroup=true"),
+                "➕ Add Me", url="t.me/cuteserenabot?startgroup=true"),
             InlineKeyboardButton(
-                "Help", callback_data='help_back'),]]
+                "🆘 Help", callback_data='help_back'),]]
 
 
 
@@ -36,13 +36,13 @@ Click the button below to know my commands!
 """
 
 HELP_BUTTON = [[
-        InlineKeyboardButton('Admin', callback_data='admin_help'),
-        InlineKeyboardButton('UserInfo', callback_data='userinfo_help'),
-        InlineKeyboardButton('Fun', callback_data='fun_help'),
+        InlineKeyboardButton('👮 Admin', callback_data='admin_help'),
+        InlineKeyboardButton('👥 UserInfo', callback_data='userinfo_help'),
+        InlineKeyboardButton('🤗 Fun', callback_data='fun_help'),
         ],[
-        InlineKeyboardButton('Misc', callback_data='misc_help'),
-        InlineKeyboardButton('Tagging', callback_data='tagging_help'),
-        InlineKeyboardButton('Mornings', callback_data='mornings_help'),
+        InlineKeyboardButton('👻 Misc', callback_data='misc_help'),
+        InlineKeyboardButton('🔍 Tagging', callback_data='tagging_help'),
+        InlineKeyboardButton('☀ Mornings', callback_data='mornings_help'),
         ],[
         InlineKeyboardButton('🏡 Home', callback_data='home')]]
 
