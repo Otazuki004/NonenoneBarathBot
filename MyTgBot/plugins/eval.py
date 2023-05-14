@@ -6,7 +6,7 @@ from subprocess import getoutput as run
 from pyrogram import filters
 from pyrogram import Client 
 
-from MyTgBot import bot, get_readable_time, StartTime
+from MyTgBot import bot, get_time, StartTime
 
 from datetime import datetime
 
@@ -104,5 +104,5 @@ async def ping(_, message):
      start_time = time.time()
      end_time = time.time()
      ping_time = round((end_time - start_time) * 1000, 5)
-     uptime = get_readable_time((time.time() - StartTime))
+     uptime = get_time((time.time() - StartTime))
      await message.edit(f"👾 **System Uptime & Ping**\n=> 🔔 **Ping**: {ping_time}\n=> ⬆️ **Uptime**: {uptime}")
