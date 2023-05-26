@@ -15,7 +15,7 @@ async def ban(_, message):
             get = await bot.get_chat_member(message.chat.id, message.from_user.id) 
             chat_id = message.chat.id
             reply = message.reply_to_message
-            mention = message.from_user.mention
+            user_id = message.from_user.id
             if not get.privileges:
                 return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
             if get.privileges.can_restrict_members:
@@ -40,14 +40,14 @@ async def unban(_, message):
             get = await bot.get_chat_member(message.chat.id,message.from_user.id)  
             chat_id = message.chat.id
             reply = message.reply_to_message
-            mention = message.from_user.mention
+            user_id = message.from_user.id
             if not get.privileges:
                 return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
             if get.privileges.can_restrict_members:
                 chat_id = message.chat.id
                 user_id  = message.reply_to_message.from_user.id
                 await bot.unban_chat_member(chat_id, user_id)
-                await message.reply_text(text= f"**Unbanned {message.from_user.mention}!**")
+                await message.reply_text(text= f"**Unbanned {}!**".format("[{user_id}](tg://user?id={user_id})"))
             else:
                 await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
         except Exception as errors:
