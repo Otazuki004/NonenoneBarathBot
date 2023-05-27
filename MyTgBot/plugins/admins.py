@@ -99,9 +99,9 @@ async def promoting(_, message):
      elif not user_stats.privileges:
          return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
      elif not bot_stats.privileges.can_promote_members:
-         return await message.reply("**I'm missing the admin rights `can_promote_members**")
+         return await message.reply("**I'm missing the admin rights `can_promote_members`**")
      elif not user_stats.privileges.can_promote_members:
-         return await message.reply("**Your missing the admin rights `can_promote_members**")
+         return await message.reply("**Your missing the admin rights `can_promote_members`**")
      elif user_stats.privileges.can_promote_members:
           msg = await message.reply_text("**Promoting Process.**")
           await bot.promote_chat_member(
