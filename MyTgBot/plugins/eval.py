@@ -5,11 +5,8 @@ from contextlib import redirect_stdout
 from subprocess import getoutput as run
 from pyrogram import filters
 from pyrogram import Client 
-
 from MyTgBot import bot
-
 from datetime import datetime
-
 
 
 async def aexec(code, client, message):
