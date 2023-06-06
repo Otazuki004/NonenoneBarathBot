@@ -4,6 +4,22 @@ from pyrogram.types import *
 import os, io, time
 
 
+@bot.on_message(filters.command(["admins","adminlist"]))
+async def admins(_, message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+    if message.chat.type == enums.ChatType.PRIVATE:
+         return await message.reply("`This Command work Only In Groups!`")
+    users = "👮 **Admins**:\n"
+    bots = "\n🤖 **Bots**:\n"
+    async for admin in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+           if admin.user.is_bot == False:
+               users += f"• **{admin.user.first_name}** - (`{admin.user.id}`)\n"
+           elif admin.user.is_bot == True:
+               bots += f"• **{admin.user.first_name}** - (`{admin.user.id}`)\n"
+    await message.reply(text=(users+bots))
+
+
 @bot.on_message(filters.command("ban"))
 async def ban(_, message):
     if message.chat.type == "private":
