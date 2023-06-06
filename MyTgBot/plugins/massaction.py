@@ -8,10 +8,10 @@ from MyTgBot import bot
 async def unbanall(_, message):
      user_id = message.from_user.id
      chat_id = message.chat.id
-     if not get.privileges:
-           await message.reply("`You Can't Access This!`")
-     if not get.privileges.can_restrict_members:
-           await message.reply("`Your missing the admin rights `can_restrict_members``")
+     if not admin.privileges:
+          return await message.reply("`You Can't Access This!`")
+     if not admin.privileges.can_restrict_members:
+          return await message.reply("`Your missing the admin rights `can_restrict_members``")
      elif message.chat.type == enums.ChatType.PRIVATE:
           return await message.reply("`This Command Only work in Groups!`")
      else:
@@ -31,12 +31,12 @@ async def unbanall(_, message):
 async def banall(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-    if not get.privileges:
-          await message.reply("`You Can't Access This!`")
-    if not get.privileges.can_restrict_members:
-          await message.reply("`Your missing the admin rights `can_restrict_members``")
+    if not admin.privileges:
+         return await message.reply("`You Can't Access This!`")
+    if not admin.privileges.can_restrict_members:
+         return await message.reply("`Your missing the admin rights `can_restrict_members``")
     elif message.chat.type == enums.ChatType.PRIVATE:
-          return await message.reply("`This Command Only work in Groups!`")
+         return await message.reply("`This Command Only work in Groups!`")
     else:  
        try: 
           Members = []
@@ -61,10 +61,10 @@ async def banall(_, message):
 async def kickall(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-    if not get.privileges:
-          await message.reply("`You Can't Access This!`")
-    if not get.privileges.can_restrict_members:
-          await message.reply("`Your missing the admin rights `can_restrict_members``")
+    if not admin.privileges:
+          return await message.reply("`You Can't Access This!`")
+    if not admin.privileges.can_restrict_members:
+          return await message.reply("`Your missing the admin rights `can_restrict_members``")
     elif message.chat.type == enums.ChatType.PRIVATE:
           return await message.reply("`This Command Only work in Groups!`")
     else:  
