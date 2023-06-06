@@ -45,8 +45,8 @@ HELP_BUTTON = [[
         InlineKeyboardButton('🔍 Tagging', callback_data='tagging_help'),
         InlineKeyboardButton('☀ Mornings', callback_data='mornings_help'),
         ],[
-        InlineKeyboardButton('🧚 Nekos', callback_data='nekos_back'),
-        InlineKeyboardButton('❌ M-Action', callback_data='m-action_back'),
+        InlineKeyboardButton('🧚 Nekos', callback_data='nekos_help'),
+        InlineKeyboardButton('❌ M-Action', callback_data='m-action_help'),
         ],[
         InlineKeyboardButton('🏡 Home', callback_data='home')]]
 
@@ -144,3 +144,30 @@ async def animehelp(_, query: CallbackQuery):
      await query.message.edit_caption(MORNINGS_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
 
+NEKOS_TEXT = """
+Usage of animation reactions commands:
+• /neko - random sent neko anime image.
+• /waifu - random sent waifu anime image.
+• /baka - random sent baka anime image.
+• /bore - random sent bore anime image.
+• /laugh - random sent laugh anime image.
+• /dance - random sent dance anime image.
+• /cuddle - random sent cuddle anime image.
+"""
+
+@bot.on_callback_query(filters.regex("nekos_help"))
+async def nekoshelp(_, query: CallbackQuery):
+    await query.message.edit_caption(NEKOS_TEXT,
+                                    reply_markup=InlineKeyboardMarkup(BUTTON),)
+
+M-ACTION_TEXT = """
+Usage of massaction commands:
+• /banall - ban all members in group.
+• /unbanall - unban all members in group.
+• /kickall - kick all members in group.
+"""
+
+@bot.on_callback_query(filters.regex("m-action_help"))
+async def massactionhelp(_, query: CallbackQuery):
+     await query.message.edit_caption(M-ACTION_TEXT,
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
