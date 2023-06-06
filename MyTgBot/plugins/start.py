@@ -38,9 +38,10 @@ Click the button below to know my commands!
 HELP_BUTTON = [[
         InlineKeyboardButton('👮 Admin', callback_data='admin_help'),
         InlineKeyboardButton('👥 UserInfo', callback_data='userinfo_help'),
-        InlineKeyboardButton('🤗 Fun', callback_data='fun_help'),
         ],[
+        InlineKeyboardButton('🤗 Fun', callback_data='fun_help'),
         InlineKeyboardButton('👻 Misc', callback_data='misc_help'),
+        ],[
         InlineKeyboardButton('🔍 Tagging', callback_data='tagging_help'),
         InlineKeyboardButton('☀ Mornings', callback_data='mornings_help'),
         ],[
