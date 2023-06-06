@@ -162,6 +162,7 @@ async def nekoshelp(_, query: CallbackQuery):
 
 MASSACTION_TEXT = """
 Usage of massaction commands:
+Only work for group owner!
 • /banall - ban all members in group.
 • /unbanall - unban all members in group.
 • /kickall - kick all members in group.
