@@ -18,7 +18,6 @@
           "TOKEN": {
           "description": "Enter your bot token",
           "required": true
-
           }
        },
        "addons": [],
