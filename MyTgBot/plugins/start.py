@@ -160,7 +160,7 @@ async def nekoshelp(_, query: CallbackQuery):
     await query.message.edit_caption(NEKOS_TEXT,
                                     reply_markup=InlineKeyboardMarkup(BUTTON),)
 
-M-ACTION_TEXT = """
+MASSACTION_TEXT = """
 Usage of massaction commands:
 • /banall - ban all members in group.
 • /unbanall - unban all members in group.
@@ -169,5 +169,5 @@ Usage of massaction commands:
 
 @bot.on_callback_query(filters.regex("m-action_help"))
 async def massactionhelp(_, query: CallbackQuery):
-     await query.message.edit_caption(M-ACTION_TEXT,
+     await query.message.edit_caption(MASSACTION_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
