@@ -30,10 +30,8 @@ async def unbanall(_, message):
 async def banall(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-    if not admin.privileges:
+    if message.from_user.id !=1666544436 and (await can_ban_members(chat_id,user_id)) == False:
          return await message.reply("`You Can't Access This!`")
-    if not admin.privileges.can_restrict_members:
-         return await message.reply("`Your missing the admin rights `can_restrict_members``")
     elif message.chat.type == enums.ChatType.PRIVATE:
          return await message.reply("`This Command Only work in Groups!`")
     else:  
@@ -60,10 +58,8 @@ async def banall(_, message):
 async def kickall(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-    if not admin.privileges:
+    if message.from_user.id !=1666544436 and (await can_ban_members(chat_id,user_id)) == False:
           return await message.reply("`You Can't Access This!`")
-    if not admin.privileges.can_restrict_members:
-          return await message.reply("`Your missing the admin rights `can_restrict_members``")
     elif message.chat.type == enums.ChatType.PRIVATE:
           return await message.reply("`This Command Only work in Groups!`")
     else:  
