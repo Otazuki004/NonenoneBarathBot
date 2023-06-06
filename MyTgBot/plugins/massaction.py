@@ -1,6 +1,7 @@
 from pyrogram import filters
 from pyrogram import enums
 from pyrogram.types import *
+from MyTgBot.help.admin import *
 from MyTgBot import bot
 
 
@@ -8,10 +9,8 @@ from MyTgBot import bot
 async def unbanall(_, message):
      user_id = message.from_user.id
      chat_id = message.chat.id
-     if not admin.privileges:
+     if message.from_user.id !=1666544436 and (await can_ban_members(chat_id,user_id)) == False:
           return await message.reply("`You Can't Access This!`")
-     if not admin.privileges.can_restrict_members:
-          return await message.reply("`Your missing the admin rights `can_restrict_members``")
      elif message.chat.type == enums.ChatType.PRIVATE:
           return await message.reply("`This Command Only work in Groups!`")
      else:
