@@ -1,4 +1,5 @@
-from MyTgBot import bot, filters
+from MyTgBot import bot
+from pyrogram import filters
 import requests
 
 
