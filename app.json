@@ -18,10 +18,7 @@
           "TOKEN": {
           "description": "Enter your bot token",
           "required": true
-          },
-          "GROUP_ID": {
-          "description": "Enter your log group id",
-          "required": true
+
           }
        },
        "addons": [],
