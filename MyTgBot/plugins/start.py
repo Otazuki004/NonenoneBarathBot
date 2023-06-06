@@ -45,6 +45,9 @@ HELP_BUTTON = [[
         InlineKeyboardButton('🔍 Tagging', callback_data='tagging_help'),
         InlineKeyboardButton('☀ Mornings', callback_data='mornings_help'),
         ],[
+        InlineKeyboardButton('🧚 Nekos', callback_data='nekos_back'),
+        InlineKeyboardButton('❌ M-Action', callback_data='m-action_back'),
+        ],[
         InlineKeyboardButton('🏡 Home', callback_data='home')]]
 
 @bot.on_callback_query(filters.regex("home"))
