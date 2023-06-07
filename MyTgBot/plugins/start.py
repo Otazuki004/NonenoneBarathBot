@@ -153,6 +153,9 @@ Usage of animation reactions commands:
 • /laugh - random sent laugh anime image.
 • /dance - random sent dance anime image.
 • /cuddle - random sent cuddle anime image.
+• /cry - random sent cry anime image.
+• /sleep - random sent sleep anime image.
+• /kill - random sent kill anime image.
 """
 
 @bot.on_callback_query(filters.regex("nekos_help"))
