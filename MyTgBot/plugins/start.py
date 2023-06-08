@@ -175,3 +175,7 @@ Only work for group owner!
 async def massactionhelp(_, query: CallbackQuery):
      await query.message.edit_caption(MASSACTION_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
+
+@bot.on_message(filters.command("start") & filters.group)
+async def start(_, message):
+     await message.reply_text("I Already Awake!  ( • ̀ω•́  )!")
