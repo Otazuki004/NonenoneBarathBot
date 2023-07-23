@@ -97,7 +97,7 @@ User info:
 async def userinfohelp(_, query: CallbackQuery):
      await query.message.edit_caption(USERINFO_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
-MICS_TEXT = """
+MISC_TEXT = """
 Extra commands:
 • /tm - reply media to get telegraph link.
 • /txt - reply text with suitable name and get telegraph text link.
@@ -105,9 +105,9 @@ Extra commands:
 • /write - to write a message.
 """
 
-@bot.on_callback_query(filters.regex("mics_help"))
+@bot.on_callback_query(filters.regex("misc_help"))
 async def micshelp(_, query: CallbackQuery):
-     await query.message.edit_caption(MICS_TEXT,
+     await query.message.edit_caption(MISC_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
 TAGGING_TEXT = """
 Tagging a group members:
