@@ -17,7 +17,7 @@ async def aexec(code, client, message):
     return await locals()["__aexec"](client, message)
 
 
-@bot.on_message(filters.command(["run","eval"],["?","!",".","*","/","$",]))
+@bot.on_message(filters.command(["run","eval"],["?","!",".","*","/","$"]))
 async def eval(client, message):
     if message.from_user.id !=1666544436:
          return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
@@ -72,7 +72,7 @@ async def eval(client, message):
         await status_message.edit_text(final_output)
 
 
-@bot.on_message(filters.command(["sh","shell"],["?","!",".","*","/","$",]))
+@bot.on_message(filters.command(["sh","shell"],["?","!",".","*","/","$"]))
 async def sh(client, message):
     if message.from_user.id !=1666544436:
          return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
