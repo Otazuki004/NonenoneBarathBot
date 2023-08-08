@@ -18,9 +18,13 @@ def pin(_, message):
       
       if message.chat.type == enums.ChatType.PRIVATE:
             return message.reply_text("work only on groups!")
+
+      if not get.privileges:
+                return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
     
       user_stats = bot.get_chat_member(chat_id, user_id)
       if user_stats.privileges.can_pin_messages and not message.reply_to_message:
+            return message.reply_text("Reply message to pin.")
          
           try:
             message_id = int(message.text.split(None,1)[1])
@@ -54,9 +58,13 @@ def unpin(_, message):
       
       if message.chat.type == enums.ChatType.PRIVATE:
             return message.reply_text("work only on groups!")
+
+      if not get.privileges:
+                return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
     
       user_stats = bot.get_chat_member(chat_id, user_id)
       if user_stats.privileges.can_pin_messages and not message.reply_to_message:
+            return message.reply_text("Reply message to unpin.)
          
           try:
             message_id = int(message.text.split(None,1)[1])
