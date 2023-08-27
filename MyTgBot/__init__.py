@@ -1,13 +1,3 @@
-import logging
-
-# enable logging
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[logging.FileHandler('logs.txt'),
-              logging.StreamHandler()],
-    level=logging.INFO)
-
-
 import os
 
 api_id = os.getenv("API_ID")
