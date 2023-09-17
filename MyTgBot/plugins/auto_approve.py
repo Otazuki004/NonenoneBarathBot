@@ -1,5 +1,5 @@
 import asyncio
-from pyrogram import filters, Client
+from pyrogram import filters, Client, bot
 from pyrogram.types import ChatJoinRequest
 from pyrogram.errors import FloodWait
 
