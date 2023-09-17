@@ -1,8 +1,8 @@
 import asyncio
+from MyTgBot import bot
 from pyrogram import filters, Client
 from pyrogram.types import ChatJoinRequest
 from pyrogram.errors import FloodWait
-from MyTgBot import bot
 
 
 @bot.on_chat_join_request(filters.group | filters.channel)
