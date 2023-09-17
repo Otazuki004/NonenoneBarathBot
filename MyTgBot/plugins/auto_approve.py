@@ -4,7 +4,7 @@ from pyrogram.types import ChatJoinRequest
 from pyrogram.errors import FloodWait
 
 
-@bot_message.on_chat_join_request(filters.chat(CHAT))
+@bot.on_chat_join_request(filters.group | filters.channel)
 async def approve(c: Client, m: ChatJoinRequest):
     if not m.from_user:
         return
