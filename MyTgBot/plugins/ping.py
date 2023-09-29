@@ -14,8 +14,8 @@ async def ping(_, message):
     time_taken_s = round(end_t - start_t, 3)
     await rm.edit_caption(
         f"""
-**BOT VERSION:** {`version`}
+**BOT VERSION:** {version}
 
-**PING:** {`time_taken_s`} seconds
-**UPTIME:** {`currentTime`}"""
+**PING:** {time_taken_s} seconds
+**UPTIME:** {currentTime}"""
     )
