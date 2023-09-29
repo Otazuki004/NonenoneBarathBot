@@ -80,6 +80,7 @@ Usage of admin commands:
 • /del - delete a message.
 • /setgpic - set group pic.
 • /setgtitle - set group title.
+• /purge - purge a message.
 """
 
 @bot.on_callback_query(filters.regex("admin_help"))
