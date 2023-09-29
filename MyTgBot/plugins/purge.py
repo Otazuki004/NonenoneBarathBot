@@ -43,4 +43,3 @@ async def purge(_, m):
         await z.delete()
         return
     await m.reply_text("Reply to a message to start purge !")
- return
