@@ -1,17 +1,17 @@
 import asyncio
 from MyTgBot import bot
-from pyrogram import filters, Client
+from pyrogram import filters
 from pyrogram.types import ChatJoinRequest
 from pyrogram.errors import FloodWait
 
 
 @bot.on_chat_join_request(filters.group | filters.channel)
-async def approve(c: Client, m: ChatJoinRequest):
+async def approve(_, m: ChatJoinRequest):
     if not m.from_user:
         return
     try:
-        await c.approve_chat_join_request(m.chat.id, m.from_user.id)
+        await bot.approve_chat_join_request(m.chat.id, m.from_user.id)
     except FloodWait as e:
         logging.info(f"Sleeping for {e.x + 2} seconds due to floodwaits!")
         await asyncio.sleep(e.x + 2)
-        await c.approve_chat_join_request(m.chat.id, m.from_user.id)
+        await bot.approve_chat_join_request(m.chat.id, m.from_user.id)
