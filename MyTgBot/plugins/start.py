@@ -7,7 +7,7 @@ from pyrogram.types import CallbackQuery
 from MyTgBot import bot
 
 START_TEXT = """
-I Already Awake!  ( • ̀ω•́  )!
+Hello there i am Serena ✘
 
 • Read the help menu for about my futures /help.
 """
@@ -27,15 +27,31 @@ async def start(_, message):
     await message.reply_text(START_TEXT,
     reply_markup=InlineKeyboardMarkup(buttons),)
    else:
-       pm_msg = f"I'm Alive"
+       pm_msg = f"I Already Awake!  ( • ̀ω•́  )"
        await message.reply_text(pm_msg)
 
 @bot.on_message(filters.command("help"))
 async def help(_, message):
-     await message.reply_text(HELP_TEXT,
-     reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
-     
+   if message.chat.type == ChatType.PRIVATE:
+    await message.reply_text(HELP_TEXT,
+    reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
+   else:
+     kb = InlineKeyboardMarkup(
+        [
+          [
+            InlineKeyboardButton(
+              "Click me for help!", 
+              url="https://t.me/CuteSerenaBot?start=help",
+            ),
+          ],
+        ],
+      )
 
+      await m.reply_text(
+        caption="Contact me in PM for help!",
+        reply_markup=kb,
+      )
+     
 HELP_TEXT = """
 Click the button below to know my commands!
 """
