@@ -47,11 +47,11 @@ async def help(_, message):
         ],
       )
 
-      await m.reply_text(pm_text,
+      await m.reply_text(PM_TEXT,
         reply_markup=kb,
       )
 
-pm_text = """
+PM_TEXT = """
 Contact me in PM for help!
 """
      
