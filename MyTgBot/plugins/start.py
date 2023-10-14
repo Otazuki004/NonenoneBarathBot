@@ -27,7 +27,7 @@ async def start(_, message):
     await message.reply_text(START_TEXT,
     reply_markup=InlineKeyboardMarkup(buttons),)
    else:
-       pm_msg = f"Hello {mention}! PM me if you have any questions on how to use me!"
+       pm_msg = f"I'm Alive"
        await message.reply_text(pm_msg)
 
 @bot.on_message(filters.command("help"))
