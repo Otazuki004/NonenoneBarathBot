@@ -27,7 +27,7 @@ async def start(_, message):
     await message.reply_text(START_TEXT,
     reply_markup=InlineKeyboardMarkup(buttons),)
    else:
-       pm_msg = f"I Already Awake!  ( • ̀ω•́  )"
+       pm_msg = "I Already Awake!  ( • ̀ω•́  )"
        await message.reply_text(pm_msg)
 
 @bot.on_message(filters.command("help"))
@@ -47,12 +47,10 @@ async def help(_, message):
         ],
       )
 
-      await m.reply_text(PM_TEXT,
-                         reply_markup=kb,)
+      await message.reply_text(pm_text,
+                               reply_markup=kb,)
 
-PM_TEXT = """
-Contact me in PM for help!
-"""
+pm_text = "Contact me in PM for help!"
      
 HELP_TEXT = """
 Click the button below to know my commands!
