@@ -40,7 +40,7 @@ async def help(_, message):
         [
           [
             InlineKeyboardButton(
-              "Click me for help!", 
+              "Click me for help", 
               url="https://t.me/CuteSerenaBot?start=help",
             ),
           ],
