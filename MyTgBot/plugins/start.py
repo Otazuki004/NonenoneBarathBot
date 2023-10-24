@@ -51,10 +51,6 @@ async def help(_, message):
    reply_markup=kb,)
 pm_text = "Contact me in PM for help!"
 
-   if name == "help_":
-    await message.reply_text(HELP_TEXT,
-    reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
-     
 HELP_TEXT = """
 Click the button below to know my commands!
 """
