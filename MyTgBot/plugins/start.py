@@ -9,7 +9,7 @@ from MyTgBot import bot
 START_TEXT = """
 Hello there i am Serena ✘
 
-• Read the help menu for about my futures /help.
+I have lot of useful features and i can easily managing your groups! /help.
 """
 
 buttons = [
