@@ -11,7 +11,7 @@ async def lock(_, m):
        lock = await m.reply_text(LOCKED)
        await sleep(10)
        await lock.delete()
-    except Exception as errors:
+     except Exception as errors:
            await message.reply(f"**Error**: {errors}")
 
 LOCKED = "Locked successfully!"
