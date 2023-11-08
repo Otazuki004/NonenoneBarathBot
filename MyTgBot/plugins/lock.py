@@ -15,7 +15,7 @@ async def unlock(_, m):
     await bot.set_chat_permissions(m.chat.id, PERMISSIONS[m.chat.id])
     await reply_and_delete(m, UNLOCKED)
 
-PERMISSIONS = {
+PERMISSIONS = ChatPermissions(
         can_send_messages=True,
         can_send_media_messages=True
-}
+)
