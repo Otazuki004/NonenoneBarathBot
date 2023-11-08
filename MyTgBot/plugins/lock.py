@@ -16,8 +16,6 @@ async def unlock(_, m):
     await reply_and_delete(m, UNLOCKED)
 
 PERMISSIONS = {
-    ChatPermissions(
         can_send_messages=True,
         can_send_media_messages=True
-    )
 }
