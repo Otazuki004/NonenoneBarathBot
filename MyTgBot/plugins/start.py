@@ -95,6 +95,8 @@ Usage of admin commands:
 • /demote - demote a user.
 • /ban - ban a user.
 • /unban - unban a user.
+• /lock - lock a chat.
+• /unlock - unlock a chat.
 • /pin - pin a message.
 • /unpin - unpin a message.
 • /del - delete a message.
