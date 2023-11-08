@@ -5,7 +5,7 @@ from MyTgBot import bot
 
 @bot.on_message(filters.command("lock"))
 async def lock(_, m):
-    if not get.privileges:
+     if not get.privileges:
        return await message.reply("-› Sorry, **only admins** can execute this command!")
        await bot.set_chat_permissions(m.chat.id, ChatPermissions(can_send_messages=False))
        lock = await m.reply_text(LOCKED)
@@ -19,7 +19,7 @@ UNLOCKED = "Unlocked successfully!"
 
 @bot.on_message(filters.command("unlock"))
 async def unlock(_, m):
-    if not get.privileges:
+     if not get.privileges:
        return await message.reply("-› Sorry, **only admins** can execute this command!")
        await bot.set_chat_permissions(m.chat.id, PERMISSIONS[m.chat.id])
        unlock = await m.reply_text(UNLOCKED)
