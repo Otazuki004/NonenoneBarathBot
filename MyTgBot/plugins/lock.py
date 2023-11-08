@@ -18,7 +18,6 @@ async def unlock(_, m):
 PERMISSIONS = {
     ChatPermissions(
         can_send_messages=True,
-        can_send_media_messages=True,
-        can_use_inline_bots=True
+        can_send_media_messages=True
     )
 }
