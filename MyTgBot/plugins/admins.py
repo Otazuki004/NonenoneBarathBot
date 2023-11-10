@@ -71,7 +71,6 @@ async def kick(_, message):
     if not message.reply_to_message:
            return await message.reply("**Reply someone to kick.**")
     get = await bot.get_chat_member(message.chat.id,message.from_user.id)
-    reply = message.reply_to_message
     if not get.privileges:
           return await message.reply("**You need to be an admin to do this.**")
     if get.privileges.can_restrict_members:
@@ -82,8 +81,6 @@ async def kick(_, message):
         await message.reply_text(text= "**Kicked {}!**".format(reply.from_user.mention))
     else:
         await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
-     except Exception as errors:
-       await message.reply(f"**Error**: {errors}")
 
 
 @bot.on_message(filters.command("demote"))
