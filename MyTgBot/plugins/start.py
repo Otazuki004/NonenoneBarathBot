@@ -93,6 +93,7 @@ Usage of admin commands:
 • /admins - to find group admins.
 • /promote - promote a user.
 • /demote - demote a user.
+• /kick - kick a user.
 • /ban - ban a user.
 • /unban - unban a user.
 • /lock - lock a chat.
