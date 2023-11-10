@@ -71,6 +71,7 @@ async def kick(_, message):
     if not message.reply_to_message:
            return await message.reply("**Reply someone to kick.**")
     get = await bot.get_chat_member(message.chat.id,message.from_user.id)
+    reply = message.reply_to_message
     if not get.privileges:
           return await message.reply("**You need to be an admin to do this.**")
     if get.privileges.can_restrict_members:
