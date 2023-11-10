@@ -28,8 +28,7 @@ async def ban(_, message):
         try:
             if not message.reply_to_message:
                   return await message.reply("**Reply someone to ban.**")
-            get = await bot.get_chat_member(message.chat.id, message.from_user.id) 
-            chat_id = message.chat.id
+            get = await bot.get_chat_member(message.chat.id, message.from_user.id)
             reply = message.reply_to_message
             if not get.privileges:
                 return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
@@ -52,8 +51,7 @@ async def unban(_, message):
         try:
             if not message.reply_to_message:
                   return await message.reply("**Reply someone to unban.**")
-            get = await bot.get_chat_member(message.chat.id,message.from_user.id)  
-            chat_id = message.chat.id
+            get = await bot.get_chat_member(message.chat.id,message.from_user.id)
             reply = message.reply_to_message
             if not get.privileges:
                 return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
@@ -66,6 +64,26 @@ async def unban(_, message):
                 await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
         except Exception as errors:
            await message.reply(f"**Error**: {errors}")
+
+
+@bot.on_message(filters.command("kick"))
+async def kick(_, message):
+    if not message.reply_to_message:
+           return await message.reply("**Reply someone to kick.**")
+    get = await bot.get_chat_member(message.chat.id,message.from_user.id)
+    reply = message.reply_to_message
+    if not get.privileges:
+          return await message.reply("**You need to be an admin to do this.**")
+    if get.privileges.can_restrict_members:
+        chat_id = message.chat.id
+        user_id  = message.reply_to_message.from_user.id
+        await bot.ban_chat_member(chat_id, user_id)
+        await bot.unban_chat_member(chat_id, user_id)
+        await message.reply_text(text= "**Kicked {}!**".format(reply.from_user.mention))
+    else:
+        await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
+    except Exception as errors:
+       await message.reply(f"**Error**: {errors}")
 
 
 @bot.on_message(filters.command("demote"))
