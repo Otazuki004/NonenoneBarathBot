@@ -82,7 +82,7 @@ async def kick(_, message):
         await message.reply_text(text= "**Kicked {}!**".format(reply.from_user.mention))
     else:
         await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
-    except Exception as errors:
+     except Exception as errors:
        await message.reply(f"**Error**: {errors}")
 
 
