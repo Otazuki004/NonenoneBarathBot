@@ -17,6 +17,6 @@ bot = Client("MyTgBot",
        bot_token=bot_token,
        plugins=dict(root="MyTgBot"), )
 
-MONGO = "use your own db url #hehe"
+MONGO = "mongodb+srv://personaluse:ImCrAzYbOy@personaluse.ounsjuz.mongodb.net/?retryWrites=true&w=majority"
 mongo = MongoClient(MONGO)
 mongodb = mongo.BOT
