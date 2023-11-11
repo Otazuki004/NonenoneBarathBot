@@ -15,3 +15,5 @@ bot = Client("MyTgBot",
        api_hash=api_hash,
        bot_token=bot_token,
        plugins=dict(root="MyTgBot"), )
+
+print("[INFO] BOT RUNNING!") 
