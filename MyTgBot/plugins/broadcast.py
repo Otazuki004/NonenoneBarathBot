@@ -8,6 +8,8 @@ from pyrogram.enums import ParseMode
 
 @bot.on_message(filters.command(["groupcast","pgroupcast"]))
 async def group_cast(_, message):
+      if message.from_user.id !=1666544436:
+         return await message.reply("`You Don't Have Enough Rights to Do This!`")
       reply = message.reply_to_message
       chat = message.chat  
       if not reply: return await message.reply("Reply to Message to Brodcast!")
@@ -32,6 +34,8 @@ async def group_cast(_, message):
        
 @bot.on_message(filters.command(["usercast","pusercast"]))
 async def user_cast(_, message):
+      if message.from_user.id !=1666544436:
+         return await message.reply("`You Don't Have Enough Rights to Do This!`")
       reply = message.reply_to_message
       chat = message.chat  
       if not reply: return await message.reply("Reply to Message to Brodcast!")
