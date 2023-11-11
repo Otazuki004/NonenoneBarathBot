@@ -1,4 +1,4 @@
-from Nandha import mongodb
+from MyTgBot import mongodb
 
 
 db = mongodb.CHATS
