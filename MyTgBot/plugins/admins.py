@@ -84,16 +84,6 @@ async def kick(_, message):
         await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
 
 
-@bot.on_message(filters.command("kickme"))
-async def kickme(_, message):
-    reply = message.reply_to_message
-    chat_id = message.chat_id
-    user_id = message.reply_to_message.from_user.id
-    await bot.ban_chat_member(chat_id, user_id)
-    await bot.unban_chat_member(chat_id, user_id)
-    await message.reply_text(text= "**Your request get out {}!**".format(reply.from_user.mention)) 
-
-
 @bot.on_message(filters.command("demote"))
 async def demotes(_, message):
    try:
