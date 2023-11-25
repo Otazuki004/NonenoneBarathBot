@@ -1,5 +1,4 @@
 from pyrogram import Client
-from pymongo import MongoClient
 import os
 import time
 
@@ -16,7 +15,3 @@ bot = Client("MyTgBot",
        api_hash=api_hash,
        bot_token=bot_token,
        plugins=dict(root="MyTgBot"), )
-
-MONGO = "mongodb+srv://nandhasigma:McfEKns8VaF0XDIq@cluster0.gt47zau.mongodb.net/test"
-mongo = MongoClient(MONGO)
-mongodb = mongo.BOT
