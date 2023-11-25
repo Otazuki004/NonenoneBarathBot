@@ -1,6 +1,4 @@
 pyrogram
-pymongo
-pymongo[srv]
 asyncio
 tgcrypto
 telegraph
