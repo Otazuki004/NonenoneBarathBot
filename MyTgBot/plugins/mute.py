@@ -19,5 +19,4 @@ async def mute(_, m):
         )
 
         await message.reply_text(text= "**Muted {}!**".format(reply.from_user.mention)),
-          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Unmute", callback_data="unmute"),
-                                                    InlineKeyboardButton(text="Delete", callback_data="delete")]])
+          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Unmute", callback_data="unmute")]])
