@@ -1,6 +1,6 @@
 import requests
 from pyrogram import filters
-from pyrogram.types import ChatType
+from pyrogram.types import *
 from MyTgBot import bot
 from pyrogram import enums
 
