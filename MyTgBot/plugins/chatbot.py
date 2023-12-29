@@ -20,7 +20,7 @@ async def chatbot(_, message):
         try:
             results = response.json()
             await message.reply_text(results.get("reply", "No reply from the chatbot."))
-        except json.JSONDecodeError:
+        except Exception as errors:
             await message.reply_text("Failed to decode the chatbot response.")
     elif response.status_code == 429:
         await message.reply_text("ChatBot Error: Too many requests. Please wait a few moments.")
