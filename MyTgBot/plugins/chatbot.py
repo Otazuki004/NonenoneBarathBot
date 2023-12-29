@@ -6,7 +6,7 @@ from pyrogram import enums
 
 @bot.on_message(filters.text & ~filters.bot & ~filters.me)
 async def chatbot(_, message):
-    if message.chat.type != ChatType.PRIVATE:
+    if message.chat.type == "private":
         if not message.reply_to_message:
             return
         if message.reply_to_message.from_user.id != (await bot.get_me()).id:
