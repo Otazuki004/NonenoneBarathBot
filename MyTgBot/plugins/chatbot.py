@@ -4,7 +4,7 @@ from pyrogram.types import *
 from MyTgBot import bot
 from pyrogram import enums
 
-@bot.on_message(filters.reply & group=100)
+@bot.on_message(filters.reply, filters.private & group=69)
 async def chatbot(_, message):
     if message.chat.type == "private":
         if not message.reply_to_message:
