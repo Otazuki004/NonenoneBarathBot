@@ -1,8 +1,8 @@
 import asyncio
 from MyTgBot import bot
 from pyrogram import filters
-from MyTgBot.help.chatsdb import *
-from MyTgBot.help.usersdb import *
+from MyTgBot.database.chatsdb import *
+from MyTgBot.database.usersdb import *
 from pyrogram.enums import ParseMode
 
 
