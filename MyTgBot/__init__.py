@@ -11,7 +11,7 @@ api_hash = os.getenv("API_HASH")
 bot_token = os.getenv("TOKEN")
 
 
-MONGO = "mongodb"
+MONGO = "mongodb+srv://kora3244:jNtUZleBWM71f1pC@haremdb.qxtdvdh.mongodb.net/?retryWrites=true&w=majority"
 mongo = MongoClient(MONGO)
 mongodb = mongo.BOT
 
