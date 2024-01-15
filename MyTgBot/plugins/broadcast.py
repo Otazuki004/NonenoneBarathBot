@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.errors import FloodWait
 
 from MyTgBot import bot
-from MyTgBot.database import get_served_chats
+from MyTgBot.database import *
 
 @bot.on_message(filters.command("broadcast"))
 async def broadcast(_, message):
