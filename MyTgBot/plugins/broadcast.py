@@ -9,7 +9,7 @@ from MyTgBot.database import *
 @bot.on_message(filters.command("broadcast"))
 async def broadcast(_, m):
     if m.reply_to_message:
-        x = m.reply_to_message.message.id
+        x = m.reply_to_message.m.id
         y = m.chat.id
     else:
         if len(m.command) < 2:
