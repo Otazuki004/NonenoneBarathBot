@@ -7,16 +7,16 @@ from MyTgBot import bot
 from MyTgBot.database import *
 
 @bot.on_message(filters.command("broadcast"))
-async def broadcast(_, message):
-    if message.reply_to_message:
-        x = message.reply_to_message.message.id
-        y = message.chat.id
+async def broadcast(_, m):
+    if m.reply_to_message:
+        x = m.reply_to_message.message.id
+        y = m.chat.id
     else:
-        if len(message.command) < 2:
-            return await message.reply_text(
+        if len(m.command) < 2:
+            return await m.reply_text(
                 "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
             )
-        query = message.text.split(None, 1)[1]
+        query = m.text.split(None, 1)[1]
     sent = 0
     chats = []
     schats = await get_served_chats()
@@ -26,7 +26,7 @@ async def broadcast(_, message):
         try:
             await bot.forward_messages(
                 i, y, x
-            ) if message.reply_to_message else await bot.send_message(
+            ) if m.reply_to_message else await bot.send_message(
                 i, text=query
             )
             sent += 1
@@ -38,7 +38,7 @@ async def broadcast(_, message):
         except Exception:
             continue
     try:
-        await message.reply_text(
+        await m.reply_text(
             f"**Broadcasted Message In {sent} Chats.**"
         )
     except:
