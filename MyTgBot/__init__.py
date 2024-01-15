@@ -13,7 +13,7 @@ bot_token = os.getenv("TOKEN")
 
 MONGO = "mongodb+srv://yolaneconcerned758:s9t1qV9i8uKBvSCN@cluster0.9ek4iyy.mongodb.net/?retryWrites=true&w=majority"
 mongo = MongoClient(MONGO)
-db = mongo.BOT
+mongodb = mongo.BOT
 
 
 bot = Client("MyTgBot", 
