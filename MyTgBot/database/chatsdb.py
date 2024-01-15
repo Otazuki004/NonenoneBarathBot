@@ -10,4 +10,4 @@ async def get_served_chats() -> list:
     chats_list = []
     for chat in await chats.to_list(length=1000000000):
         chats_list.append(chat)
-    return chats_list
+    return chats_lis
