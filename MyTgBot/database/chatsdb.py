@@ -1,13 +1,22 @@
-from MyTgBot import db
-
-chatsdb = db.chatsdb
+from MyTgBot import mongodb
 
 
-async def get_served_chats() -> list:
-    chats = chatsdb.find({"chat_id": {"$lt": 0}})
-    if not chats:
-        return []
-    chats_list = []
-    for chat in await chats.to_list(length=1000000000):
-        chats_list.append(chat)
-    return chats_lis
+db = mongodb.CHATS
+
+
+def get_chats():
+    chats = []
+    for x in db.find():
+        chats.append(x["chat_id"])
+    return chats
+
+def add_chat(chat_id: int):
+    if chat_id in get_chats():
+         return
+    db.insert_one({"chat_id": chat_id})
+
+def remove_chat(chat_id: int):
+    if not chat_id in get_chats():
+        return
+    x = db.find_one({"chat_id": chat_id})
+    db.delete_one(x)
