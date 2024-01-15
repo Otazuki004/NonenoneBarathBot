@@ -1,46 +1,57 @@
 import asyncio
-
-from pyrogram import filters
-from pyrogram.errors import FloodWait
-from pyrogram.types import Message
-
 from MyTgBot import bot
-from MyTgBot.database import *
+from pyrogram import filters
+from MyTgBot.help.chatsdb import *
+from MyTgBot.help.usersdb import *
+from pyrogram.enums import ParseMode
 
-@bot.on_message(filters.command("broadcast"))
-async def broadcast(_, message: Message):
-    if message.reply_to_message:
-        x = message.reply_to_message.message.id
-        y = message.chat.id
-    else:
-        if len(message.command) < 2:
-            return await message.reply_text(
-                "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
-            )
-        query = message.text.split(None, 1)[1]
-    sent = 0
-    chats = []
-    schats = await get_served_chats()
-    for chat in schats:
-        chats.append(int(chat["chat_id"]))
-    for i in chats:
-        try:
-            await bot.forward_messages(
-                i, y, x
-            ) if message.reply_to_message else await bot.send_message(
-                i, text=query
-            )
-            sent += 1
-        except FloodWait as e:
-            flood_time = int(e.x)
-            if flood_time > 200:
-                continue
-            await asyncio.sleep(flood_time)
-        except Exception:
-            continue
-    try:
-        await message.reply_text(
-            f"**Broadcasted Message In {sent} Chats.**"
-        )
-    except:
-        pass
+
+@bot.on_message(filters.command(["groupcast","pgroupcast"]))
+async def group_cast(_, message):
+      if message.from_user.id !=1666544436:
+         return await message.reply("`You Don't Have Enough Rights to Do This!`")
+      reply = message.reply_to_message
+      chat = message.chat  
+      if not reply: return await message.reply("Reply to Message to Brodcast!")
+      success = "**Group Brodcast**:\n**Success**: `{}`\n**Failed**: `{}`"
+      msg = await message.reply("`Please wait Some Minutes!`", quote=True)      
+      chat_id = []
+      for id in get_chats():
+         chat_id.append(id)
+      done = 0
+      for ids in chat_id:
+          try:            
+             cast = await bot.copy_message(ids, chat.id, reply.id, parse_mode=ParseMode.DEFAULT)
+             if message.text[1].casefold() == "p":
+                 try: await cast.pin()
+                 except: pass
+             done +=1             
+             await asyncio.sleep(3)
+          except: 
+              fail = len(chat_id)-done    
+      return await msg.edit(success.format(done, fail))
+         
+       
+@bot.on_message(filters.command(["usercast","pusercast"]))
+async def user_cast(_, message):
+      if message.from_user.id !=1666544436:
+         return await message.reply("`You Don't Have Enough Rights to Do This!`")
+      reply = message.reply_to_message
+      chat = message.chat  
+      if not reply: return await message.reply("Reply to Message to Brodcast!")
+      success = "**User Brodcast**:\n**Success**: `{}`\n**Failed**: `{}`"
+      msg = await message.reply("`Please wait Some Minutes!`", quote=True)      
+      chat_id = []
+      for id in get_users():
+         chat_id.append(id)
+      done = 0
+      for ids in chat_id:
+          try:
+             cast = await bot.copy_message(ids, chat.id, reply.id,parse_mode=ParseMode.DEFAULT)
+             done +=1
+             if message.text[1].casefold() == "p":
+                 try: await cast.pin()
+                 except: pass
+             await asyncio.sleep(3)
+          except: fail = len(chat_id)-done    
+      return await msg.edit(success.format(done, fail))
