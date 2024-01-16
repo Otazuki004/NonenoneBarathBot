@@ -15,7 +15,7 @@ async def muted(_, message):
       api = requests.get("https://nekos.best/api/v2/bored").json()
       url = api["results"][0]['url']
       try:
-          if get.privileges.can_restrict_members: or user_id !=1666544436:   
+          if get.privileges.can_restrict_members:   
                 if not reply and len(message.command) >2:
                     mute_id = int(message.text.split(" ")[1])
                     reason = message.text.split(None, 2)[2]
