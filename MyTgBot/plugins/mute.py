@@ -8,9 +8,11 @@ from pyrogram import filters
 async def muted(_, message):
       user_id = int(message.from_user.id)
       chat_id = int(message.chat.id)
+      admin = int(message.from_user)
       reply = message.reply_to_message
       get = await bot.get_chat_member(message.chat.id, message.from_user.id)
       bot_stats = await bot.get_chat_member(chat_id, "self")
+      user_stats = await bot.get_chat_member(chat_id, admin.id)
       bot_id = bot.me.id
       api = requests.get("https://nekos.best/api/v2/bored").json()
       url = api["results"][0]['url']
@@ -34,7 +36,7 @@ async def muted(_, message):
                       return await message.reply_text("`Make you sure I'm Admin!`")
                 elif mute_id == bot_id:
                       return await message.reply_text("`I can't mute myself!`")
-                elif get.privileges:
+                elif user_stats.privileges:
                       return await message.reply_text("`The User Is Admin! I can't ban!`")
                 else:
                      await bot.restrict_chat_member(chat_id, mute_id, ChatPermissions(can_send_messages=False))
