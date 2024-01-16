@@ -8,11 +8,10 @@ from pyrogram import filters
 async def muted(_, message):
       user_id = int(message.from_user.id)
       chat_id = int(message.chat.id)
-      admin = message.from_user
       reply = message.reply_to_message
       get = await bot.get_chat_member(message.chat.id, message.from_user.id)
       bot_stats = await bot.get_chat_member(chat_id, "self")
-      user_stats = await bot.get_chat_member(chat_id, admin.id)
+      user_stats = await bot.get_chat_member(chat_id, user_id)
       bot_id = bot.me.id
       api = requests.get("https://nekos.best/api/v2/bored").json()
       url = api["results"][0]['url']
