@@ -22,6 +22,8 @@ async def notes(_, message):
 @bot.on_message(filters.command("clear"))
 async def clear(_, message):
       chat_id = message.chat.id
+      get = await bot.get_chat_member(message.chat.id, message.from_user.id)
+      elif not get.privileges: return await message.reply_text("Admins Only Can Clear Notes!")
       try: note_name = message.text.split(None,1)[1]
       except: return await message.reply_text("what I want do clear? tell me note name!")
       x = db.find_one({"chat_id": chat_id, "note_name": note_name})
