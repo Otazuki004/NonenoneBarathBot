@@ -8,7 +8,7 @@ from pyrogram import filters
 async def muted(_, message):
       user_id = int(message.from_user.id)
       chat_id = int(message.chat.id)
-      admin = int(message.from_user)
+      admin = message.from_user
       reply = message.reply_to_message
       get = await bot.get_chat_member(message.chat.id, message.from_user.id)
       bot_stats = await bot.get_chat_member(chat_id, "self")
