@@ -11,7 +11,6 @@ async def muted(_, message):
       reply = message.reply_to_message
       get = await bot.get_chat_member(message.chat.id, message.from_user.id)
       bot_stats = await bot.get_chat_member(chat_id, "self")
-      user_stats = await bot.get_chat_member(chat_id, user_id)
       bot_id = bot.me.id
       api = requests.get("https://nekos.best/api/v2/bored").json()
       url = api["results"][0]['url']
@@ -35,7 +34,7 @@ async def muted(_, message):
                       return await message.reply_text("`Make you sure I'm Admin!`")
                 elif mute_id == bot_id:
                       return await message.reply_text("`I can't mute myself!`")
-                elif user_stats.privileges:
+                elif get.privileges:
                       return await message.reply_text("`The User Is Admin! I can't ban!`")
                 else:
                      await bot.restrict_chat_member(chat_id, mute_id, ChatPermissions(can_send_messages=False))
