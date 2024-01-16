@@ -33,6 +33,7 @@ async def clear(_, message):
 @bot.on_message(filters.command("save"))
 async def save(_, message):
      reply = message.reply_to_message
+     get = await bot.get_chat_member(message.chat.id, message.from_user.id)
      chat_id = message.chat.id
      user_id = message.from_user.id
      if message.chat.type == enums.ChatType.PRIVATE: return await message.reply_text("Commands Work Only On Groups!")
