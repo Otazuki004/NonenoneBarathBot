@@ -34,8 +34,6 @@ async def muted(_, message):
                       return await message.reply_text("`Make you sure I'm Admin!`")
                 elif mute_id == bot_id:
                       return await message.reply_text("`I can't mute myself!`")
-                elif mute_id == from_user.id !=1666544436:
-                      return await message.reply_text("`I can't do against my owner!`")
                 elif get.privileges:
                       return await message.reply_text("`The User Is Admin! I can't ban!`")
                 else:
