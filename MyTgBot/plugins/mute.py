@@ -8,6 +8,7 @@ from pyrogram import filters
 async def muted(_, message):
       user_id = int(message.from_user.id)
       chat_id = int(message.chat.id)
+      mute_id = int(message.text.split(" ")[1])
       reply = message.reply_to_message
       get = await bot.get_chat_member(message.chat.id, message.from_user.id)
       bot_stats = await bot.get_chat_member(chat_id, "self")
@@ -15,31 +16,20 @@ async def muted(_, message):
       api = requests.get("https://nekos.best/api/v2/bored").json()
       url = api["results"][0]['url']
       try:
-          if get.privileges.can_restrict_members:   
-                if not reply and len(message.command) >2:
-                    mute_id = int(message.text.split(" ")[1])
-                    reason = message.text.split(None, 2)[2]
-                elif not reply and len(message.command) == 2:
-                    mute_id = int(message.text.split(" ")[1])
-                    reason = "No Reason Provide"
-                elif reply and len(message.command) >1:
-                    mute_id = reply.from_user.id
-                    reason = message.text.split(None, 1)[1]        
-                elif reply and len(message.command) <2:
-                     mute_id = reply.from_user.id
-                     reason = "No Reason Provide"
-                else:
-                    return await message.reply("I can't find the user.")
-                if not bot_stats.privileges:
+          if not bot_stats.privileges:
                       return await message.reply_text("`Make you sure I'm Admin!`")
                 elif mute_id == bot_id:
                       return await message.reply_text("`I can't mute myself!`")
                 elif get.privileges:
                       return await message.reply_text("`The User Is Admin! I can't ban!`")
+                elif not get.privileges:
+                      return await message.reply_text("`Only Admins Can Use This Command`")
                 else:
                      await bot.restrict_chat_member(chat_id, mute_id, ChatPermissions(can_send_messages=False))
-                     await message.reply_animation(url,caption=f"The Bitch Muted!\n • `{mute_id}`\n\nFollowing Reason:\n`{reason}`",
+                     await message.reply_animation(url,caption=f"The Bitch Muted!\n • `{mute_id}`",
                      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Unmute", callback_data=f"unmute_btn:{mute_id}")]]))
+                else:
+                     await message.reply_text("`Your missing the admin rights `can_restrict_members`")
       except Exception as e:
          await message.reply_text(e)
                      
