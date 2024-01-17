@@ -18,9 +18,9 @@ async def muted(_, message):
       try:
           if not bot_stats.privileges:
                       return await message.reply_text("`Make you sure I'm Admin!`")
-                elif get.privileges:
+                if get.privileges:
                       return await message.reply_text("`The User Is Admin! I can't ban!`")
-                elif not get.privileges:
+                if not get.privileges:
                       return await message.reply_text("`Only Admins Can Use This Command`")
                 else:
                      await bot.restrict_chat_member(chat_id, mute_id, ChatPermissions(can_send_messages=False))
