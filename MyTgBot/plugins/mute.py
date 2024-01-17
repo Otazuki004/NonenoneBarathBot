@@ -28,7 +28,7 @@ async def muted(_, message):
                      await bot.restrict_chat_member(chat_id, mute_id, ChatPermissions(can_send_messages=False))
                      await message.reply_animation(url,caption=f"The Bitch Muted!\n • `{mute_id}`",
                      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Unmute", callback_data=f"unmute_btn:{mute_id}")]]))
-                else:
+                 else:
                      await message.reply_text("`Your missing the admin rights `can_restrict_members`")
       except Exception as e:
          await message.reply_text(e)
