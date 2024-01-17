@@ -210,4 +210,4 @@ Save notes on your chats:
 @bot.on_callback_query(filters.regex("notes_help"))
 async def noteshelp(_, query: CallbackQuery):
      await query.message.edit_caption(NOTES_TEXT,
-                                      reply_markup=InlineKeyboardButton(BUTTON),)
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
