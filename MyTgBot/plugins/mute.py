@@ -18,7 +18,7 @@ async def muted(_, message):
       try:
           if not bot_stats.privileges:
                       return await message.reply_text("`Make you sure I'm Admin!`")
-                elif mute_id == bot_id:
+                if mute_id == bot_id:
                       return await message.reply_text("`I can't mute myself!`")
                 elif get.privileges:
                       return await message.reply_text("`The User Is Admin! I can't ban!`")
@@ -28,7 +28,7 @@ async def muted(_, message):
                      await bot.restrict_chat_member(chat_id, mute_id, ChatPermissions(can_send_messages=False))
                      await message.reply_animation(url,caption=f"The Bitch Muted!\n • `{mute_id}`",
                      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Unmute", callback_data=f"unmute_btn:{mute_id}")]]))
-                 else:
+                else:
                      await message.reply_text("`Your missing the admin rights `can_restrict_members`")
       except Exception as e:
          await message.reply_text(e)
