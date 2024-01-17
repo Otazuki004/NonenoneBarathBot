@@ -68,6 +68,8 @@ HELP_BUTTON = [[
         InlineKeyboardButton('🧚 Nekos', callback_data='nekos_help'),
         InlineKeyboardButton('❌ M-Action', callback_data='m-action_help'),
         ],[
+        InlineKeyboardButton('✍ Notes', callback_data='notes_help'),
+        ],[
         InlineKeyboardButton('🏡 Home', callback_data='home')]]
 
 @bot.on_callback_query(filters.regex("home"))
@@ -197,3 +199,15 @@ Only work for group owner!
 async def massactionhelp(_, query: CallbackQuery):
      await query.message.edit_caption(MASSACTION_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
+
+NOTES_TEXT = """
+Save notes on your chats:
+• /save - reply to any messages with notename.
+• /clear - use with notename.
+• /notes - get notes in your chat. 
+"""
+
+@bot.on_callback_query(filters.regex("notes_help"))
+async def noteshelp(_, query: CallbackQuery):
+     await query.message.edit_caption(NOTES_TEXT,
+                                      reply_markup=InlineKeyboardButton(BUTTON),)
